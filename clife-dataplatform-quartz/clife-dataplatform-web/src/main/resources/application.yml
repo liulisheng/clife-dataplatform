@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: clife-dataplatform-web
+server:
+  port: 8081
+hello:
+  service:
+    version: 1.0.0
+dubbo:
+  application:
+    id: clife-dataplatform-web-id
+    name: clife-dataplatform-web-name
+  registry:
+    protocol: zookeeper
+    address: 10.8.16.79:2181
+    #address: 127.0.0.1:2181
+    id: lin-registry-1
+management:
+  endpoint:
+    dubbo-configs:
+      enabled: true
+    dubbo:
+      enabled: true
+    dubbo-services:
+      enabled: true
+    dubbo-properties:
+      enabled: true
+    dubbo-shutdown:
+      enabled: true
+    dubbo-references:
+      enabled: true
+  health:
+    dubbo:
+      status:
+        defaults: memory
+        extras: load,threadpool
+  endpoints:
+    web:
+      exposure:
+        include: '*'
