@@ -25,6 +25,6 @@ public class UserinfoServiceImplTest {
     @Test
     public void selectByPrimaryKey() {
         Userinfo userinfo=  userinfoService.selectByPrimaryKey(1);
-        logger.info("测试成功");
+        logger.info("测试成功1");
     }
 }
