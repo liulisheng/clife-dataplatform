@@ -18,6 +18,7 @@ public class UserinfoServiceImpl implements UserinfoService{
     UserinfoService2 userinfo2;
     @Override
     public Userinfo selectByPrimaryKey(Integer id) {
+        int i=1/0;
         System.out.println("dubbo 远程调用");
         userinfo2.test2();
         return userinfoDao.selectByPrimaryKey(id);

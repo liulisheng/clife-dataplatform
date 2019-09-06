@@ -36,13 +36,27 @@ spring:
       pool-prepared-statements: false
       max-pool-prepared-statement-per-connection-size: 20
 
+  redis:
+    cache:
+     # nodes: -127.0.0.1:7001
+     #   -127.0.0.1:7002
+     #   -127.0.0.1:7003
+     #   -127.0.0.1:7004
+      host: 10.8.16.78:6379
+      password:
+      maxIdle:
+      minIdle:
+      maxTotal:
+      maxWaitMillis: 5000
+    database: 0
+
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   #Mapper.xml所在的位置
   type-aliases-package: com.clife.dataplatform.model
   #开启MyBatis的二级缓存
   configuration:
-    cache-enabled: true
+    cache-enabled: false
 
 dubbo:
   registry:

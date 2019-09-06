@@ -1,0 +1,15 @@
+#server:
+#  port: 1015
+#spring:
+#  redis:
+#    cache:
+#     # nodes: -127.0.0.1:7001
+#     #   -127.0.0.1:7002
+#     #   -127.0.0.1:7003
+#     #   -127.0.0.1:7004
+#      host: 10.8.16.78:6379
+#      password:
+#      maxIdle:
+#      minIdle:
+#      maxTotal:
+#      maxWaitMillis: 5000

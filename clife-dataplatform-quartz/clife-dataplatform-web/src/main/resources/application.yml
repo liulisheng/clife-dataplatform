@@ -2,7 +2,7 @@ spring:
   application:
     name: clife-dataplatform-web
 server:
-  port: 8081
+  port: 8083
 hello:
   service:
     version: 1.0.0

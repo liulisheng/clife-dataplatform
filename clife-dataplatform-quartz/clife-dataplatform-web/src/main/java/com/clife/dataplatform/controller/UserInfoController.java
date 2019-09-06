@@ -27,7 +27,7 @@ public class UserInfoController {
     @RequestMapping("/login")
     @ResponseBody
     public Object login(@RequestBody Userinfo userinfo) {
-       // Userinfo userinfo= userinfoService.selectByPrimaryKey(1);
+        Userinfo u= userinfoService.selectByPrimaryKey(1);
 
         String ticket="ticket";
         String token="1111";
