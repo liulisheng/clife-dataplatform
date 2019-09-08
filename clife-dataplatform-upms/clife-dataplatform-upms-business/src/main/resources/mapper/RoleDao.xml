@@ -9,10 +9,11 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
     <result column="description" jdbcType="VARCHAR" property="description" />
     <result column="del_flag" jdbcType="BOOLEAN" property="delFlag" />
+    <result column="role_code" jdbcType="VARCHAR" property="roleCode" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--@mbg.generated-->
-    role_id, role_name, create_time, update_time, description, del_flag
+    role_id, role_name, create_time, update_time, description, del_flag, role_code
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--@mbg.generated-->
@@ -29,9 +30,11 @@
   <insert id="insert" keyColumn="role_id" keyProperty="roleId" parameterType="com.clife.dataplatform.upms.model.Role" useGeneratedKeys="true">
     <!--@mbg.generated-->
     insert into tb_role (role_name, create_time, update_time, 
-      description, del_flag)
+      description, del_flag, role_code
+      )
     values (#{roleName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
-      #{description,jdbcType=VARCHAR}, #{delFlag,jdbcType=BOOLEAN})
+      #{description,jdbcType=VARCHAR}, #{delFlag,jdbcType=BOOLEAN}, #{roleCode,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="role_id" keyProperty="roleId" parameterType="com.clife.dataplatform.upms.model.Role" useGeneratedKeys="true">
     <!--@mbg.generated-->
@@ -52,6 +55,9 @@
       <if test="delFlag != null">
         del_flag,
       </if>
+      <if test="roleCode != null">
+        role_code,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="roleName != null">
@@ -68,6 +74,9 @@
       </if>
       <if test="delFlag != null">
         #{delFlag,jdbcType=BOOLEAN},
+      </if>
+      <if test="roleCode != null">
+        #{roleCode,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -90,6 +99,9 @@
       <if test="delFlag != null">
         del_flag = #{delFlag,jdbcType=BOOLEAN},
       </if>
+      <if test="roleCode != null">
+        role_code = #{roleCode,jdbcType=VARCHAR},
+      </if>
     </set>
     where role_id = #{roleId,jdbcType=INTEGER}
   </update>
@@ -100,7 +112,13 @@
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       description = #{description,jdbcType=VARCHAR},
-      del_flag = #{delFlag,jdbcType=BOOLEAN}
+      del_flag = #{delFlag,jdbcType=BOOLEAN},
+      role_code = #{roleCode,jdbcType=VARCHAR}
     where role_id = #{roleId,jdbcType=INTEGER}
   </update>
+
+    <select id="selectAllByUserId" resultMap="BaseResultMap">
+      select tr.* from tb_user_role as tbr left join tb_role as tr on tr.role_id=tbr.role_id
+       where tbr.user_id=#{userId,jdbcType=INTEGER} group by tr.role_id
+    </select>
 </mapper>

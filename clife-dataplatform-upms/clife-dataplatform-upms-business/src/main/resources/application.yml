@@ -35,7 +35,20 @@ spring:
       #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
       pool-prepared-statements: false
       max-pool-prepared-statement-per-connection-size: 20
-
+  redis:
+    cache:
+      # nodes: -127.0.0.1:7001
+      #   -127.0.0.1:7002
+      #   -127.0.0.1:7003
+      #   -127.0.0.1:7004
+      #host: 10.8.16.78:6379
+      host: 127.0.0.1:6379
+      password:
+      maxIdle:
+      minIdle:
+      maxTotal:
+      maxWaitMillis: 5000
+    database: 0
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   #Mapper.xml所在的位置
@@ -48,8 +61,8 @@ dubbo:
   registry:
     protocol: zookeeper
     #公司zk
-    address: 10.8.16.79:2181
-    #address: 127.0.0.1:2181
+    #address: 10.8.16.79:2181
+    address: 127.0.0.1:2181
     id: lin-registry-1
   protocol:
     port: 12345
@@ -62,7 +75,7 @@ dubbo:
     qos-enable: true
     qos-port: 22222
   scan:
-    basePackages: com.clife.dataplatform.ups.service
+    basePackages: com.clife.dataplatform.upms.service
 hello:
   service:
     version: 1.0.0

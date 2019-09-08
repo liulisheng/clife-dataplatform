@@ -22,5 +22,7 @@ public class Role implements Serializable {
 
     private Boolean delFlag;
 
+    private String roleCode;
+
     private static final long serialVersionUID = 1L;
 }

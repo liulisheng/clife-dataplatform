@@ -1,14 +1,14 @@
 package com.clife.dataplatform.upms.model;
 
-
-
-import lombok.Getter;
-import lombok.Setter;
-
 import java.io.Serializable;
 import java.util.Date;
-@Setter
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 @Getter
+@Setter
+@ToString
 public class User implements Serializable {
     private Integer userId;
 
@@ -26,7 +26,7 @@ public class User implements Serializable {
 
     private Boolean delFlag;
 
+    private String userSalt;
+
     private static final long serialVersionUID = 1L;
-
-
 }

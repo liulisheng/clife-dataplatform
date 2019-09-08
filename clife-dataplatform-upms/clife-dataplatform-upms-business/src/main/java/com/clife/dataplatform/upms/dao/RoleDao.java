@@ -1,9 +1,7 @@
 package com.clife.dataplatform.upms.dao;
 
-import com.clife.dataplatform.upms.model.Role;
-import org.apache.ibatis.annotations.Mapper;
+import com.clife.dataplatform.upms.model.Role;import java.util.List;
 
-@Mapper
 public interface RoleDao {
     int deleteByPrimaryKey(Integer roleId);
 
@@ -16,4 +14,6 @@ public interface RoleDao {
     int updateByPrimaryKeySelective(Role record);
 
     int updateByPrimaryKey(Role record);
+
+    List<Role> selectAllByUserId(Integer userId);
 }

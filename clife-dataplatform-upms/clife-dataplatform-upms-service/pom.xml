@@ -12,4 +12,8 @@
     <artifactId>clife-dataplatform-upms-service</artifactId>
 
 
+    <dependencies>
+
+
+    </dependencies>
 </project>

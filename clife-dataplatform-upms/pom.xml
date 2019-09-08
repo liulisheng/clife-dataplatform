@@ -17,5 +17,33 @@
         <module>clife-dataplatform-upms-web</module>
     </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.clife.dataplatform</groupId>
+            <artifactId>clife-dataplatform-common</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+            <version>1.4.1</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- Shiro-redis插件 -->
+        <dependency>
+            <groupId>org.crazycake</groupId>
+            <artifactId>shiro-redis</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

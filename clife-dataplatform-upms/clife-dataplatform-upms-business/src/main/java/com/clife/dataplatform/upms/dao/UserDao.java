@@ -1,9 +1,7 @@
 package com.clife.dataplatform.upms.dao;
 
-import com.clife.dataplatform.upms.model.User;
-import org.apache.ibatis.annotations.Mapper;
+import com.clife.dataplatform.upms.model.User;import org.apache.ibatis.annotations.Param;
 
-@Mapper
 public interface UserDao {
     int deleteByPrimaryKey(Integer userId);
 
@@ -16,4 +14,6 @@ public interface UserDao {
     int updateByPrimaryKeySelective(User record);
 
     int updateByPrimaryKey(User record);
+
+    User selectByUserName(@Param("userName") String userName);
 }
