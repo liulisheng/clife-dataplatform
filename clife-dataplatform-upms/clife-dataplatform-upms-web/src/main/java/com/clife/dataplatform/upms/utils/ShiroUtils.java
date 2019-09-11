@@ -1,6 +1,5 @@
 package com.clife.dataplatform.upms.utils;
 
-import com.clife.dataplatform.upms.controller.UserController;
 import com.clife.dataplatform.upms.model.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.Authenticator;
@@ -15,7 +14,7 @@ import java.util.Collection;
 import java.util.Objects;
 public class ShiroUtils {
 
-    private static RedisSessionDAO redisSessionDAO = UserController.SpringUtil.getBean(RedisSessionDAO.class);
+    private static RedisSessionDAO redisSessionDAO = SpringUtil.getBean(RedisSessionDAO.class);
 
     /**
      * 删除用户缓存信息
@@ -53,6 +52,10 @@ public class ShiroUtils {
         ((LogoutAware) authc).onLogout((SimplePrincipalCollection) attribute);
 
 
+    }
+
+    public static User getUser() {
+        return (User) SecurityUtils.getSubject().getPrincipal();
     }
 
 
