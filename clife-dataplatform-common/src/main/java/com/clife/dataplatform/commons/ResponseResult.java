@@ -27,20 +27,20 @@ public class ResponseResult {
     }
     public static Object fail(String msg){
         Map<String, Object> map = new LinkedHashMap();
-        map.put("status", -1);
+        map.put("status", 0);
         map.put("msg",msg);
         return map;
     }
     public static Object fail(Object data,String msg) {
         Map<String, Object> map = new LinkedHashMap();
-        map.put("status", -1);
+        map.put("status", 0);
         map.put("data", data);
         map.put("msg",msg);
         return map;
     }
     public static Object fail(Object data) {
         Map<String, Object> map = new LinkedHashMap();
-        map.put("status", -1);
+        map.put("status", 0);
         map.put("data", data);
         return map;
     }

@@ -1,12 +1,7 @@
 package com.clife.dataplatform.upms.dao;
-import org.apache.ibatis.annotations.Param;
 
-import com.clife.dataplatform.upms.model.Permission;
-import org.apache.ibatis.annotations.Mapper;
+import com.clife.dataplatform.upms.model.Permission;import org.apache.ibatis.annotations.Param;import java.util.List;
 
-import java.util.List;
-
-@Mapper
 public interface PermissionDao {
     int deleteByPrimaryKey(Integer permissionId);
 
@@ -22,10 +17,9 @@ public interface PermissionDao {
 
     List<Permission> selectByUserId(Integer userId);
 
+    List<Permission> selectByAll(Permission permission);
 
-	List<Permission> selectByAll(Permission permission);
+    int insertRolePermission(@Param("permissionId") Integer permissionId, @Param("roleId") Integer roleId);
 
-
-
-
+    int deleteRolePermByPerId(Integer permissionId);
 }

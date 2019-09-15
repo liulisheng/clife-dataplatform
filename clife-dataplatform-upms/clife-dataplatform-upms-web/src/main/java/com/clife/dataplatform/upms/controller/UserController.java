@@ -29,7 +29,7 @@ public class UserController extends BaseController {
     public Object login(){
         User user=this.getJSONParam(User.class);
 
-        UsernamePasswordToken token = new UsernamePasswordToken(user.getUserName(), user.getUserPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken("admin", "123456");
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);

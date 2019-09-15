@@ -41,8 +41,8 @@ spring:
       #   -127.0.0.1:7002
       #   -127.0.0.1:7003
       #   -127.0.0.1:7004
-      host: 10.8.16.78:6379
-      #host: 127.0.0.1:6379
+      #host: 10.8.16.78:6379
+      host: 127.0.0.1:6379
       password:
       maxIdle:
       minIdle:
@@ -55,14 +55,14 @@ mybatis:
   type-aliases-package: com.clife.dataplatform.upms.model
   #开启MyBatis的二级缓存
   configuration:
-    cache-enabled: true
+    cache-enabled: false
 
 dubbo:
   registry:
     protocol: zookeeper
     #公司zk
-    address: 10.8.16.79:2181
-    #address: 127.0.0.1:2181
+    #address: 10.8.16.79:2181
+    address: 127.0.0.1:2181
     id: lin-registry-1
   protocol:
     port: 12345

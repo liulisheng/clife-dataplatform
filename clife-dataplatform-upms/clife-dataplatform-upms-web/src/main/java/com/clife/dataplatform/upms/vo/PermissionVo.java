@@ -1,15 +1,14 @@
-package com.clife.dataplatform.upms.model;
+package com.clife.dataplatform.upms.vo;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
-import java.io.Serializable;
+import java.util.List;
 
 @Getter
 @Setter
-@ToString
-public class Permission implements Serializable {
+public class PermissionVo {
+
     /**
      * 主键
      */
@@ -55,5 +54,8 @@ public class Permission implements Serializable {
      */
     private int permissionStatus;
 
-    private static final long serialVersionUID = 1L;
+    /**
+     * 子菜单权限
+     */
+    private List<PermissionVo> children;
 }

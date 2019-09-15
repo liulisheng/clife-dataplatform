@@ -10,4 +10,15 @@ public interface PermissionService {
     List<Permission> selectByAll(Permission permission);
 
 
+    int insert(Permission permission);
+
+    Permission selectByPrimaryKey(Integer permissionId);
+
+    int updateByPrimaryKey(Permission permission);
+
+
+    int deleteByPrimaryKey(Integer permissionId);
+
+    int updateByPrimaryKeySelective(Permission record);
+
 }
