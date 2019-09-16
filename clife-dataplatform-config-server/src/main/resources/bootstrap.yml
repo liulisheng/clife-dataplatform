@@ -11,5 +11,5 @@ spring:
       server:
         git:
           uri: https://github.com/liulisheng/config-repo.git   #github仓库地址
-          username: 1037079532@qq.com      # 用户名
-          password: pppp      # 密码
+          #username: 1037079532@qq.com      # 用户名
+          #password:       # 密码
