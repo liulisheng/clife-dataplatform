@@ -20,6 +20,7 @@
         <module>clife-dataplatform-common</module>
         <module>clife-dataplatform-quartz</module>
         <module>clife-dataplatform-upms</module>
+        <module>clife-dataplatform-config-server</module>
     </modules>
 
     <properties>
