@@ -1,10 +1,11 @@
 package com.clife.dataplatform.upms.model;
 
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+
+import java.io.Serializable;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -23,6 +24,8 @@ public class Role implements Serializable {
     private Boolean delFlag;
 
     private String roleCode;
+
+    private Integer sort;
 
     private static final long serialVersionUID = 1L;
 }

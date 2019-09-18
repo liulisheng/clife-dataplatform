@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MyShiroRealm extends AuthorizingRealm {
 
-    @Reference(version = "${hello.service.version}")
+    @Reference
     private UserService userService;
 
     @Reference

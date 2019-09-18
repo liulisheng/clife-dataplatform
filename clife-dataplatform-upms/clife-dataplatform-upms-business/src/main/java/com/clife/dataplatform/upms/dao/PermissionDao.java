@@ -22,4 +22,7 @@ public interface PermissionDao {
     int insertRolePermission(@Param("permissionId") Integer permissionId, @Param("roleId") Integer roleId);
 
     int deleteRolePermByPerId(Integer permissionId);
+
+    List<Permission> getPermissionByRoleId(@Param("roleId") Integer roleId);
+
 }

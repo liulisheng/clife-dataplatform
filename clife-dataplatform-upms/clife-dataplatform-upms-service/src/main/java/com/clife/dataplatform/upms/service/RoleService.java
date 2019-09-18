@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface RoleService {
     List<Role> selectAllByUserId(Integer userId);
+
+    List<Role> selectByAll(Role role);
 }

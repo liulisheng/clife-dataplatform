@@ -186,4 +186,14 @@
   <delete id="deleteRolePermByPerId">
     delete from tb_role_permission where permission_id=#{permissionId,jdbcType=INTEGER}
   </delete>
+  <select id="getPermissionByRoleId" resultMap="BaseResultMap">
+    select tp.* from tb_user_role as tur
+    left join tb_role_permission trp on tur.role_id = trp.role_id
+    left join tb_permission tp on trp.permission_id = tp.permission_id
+    where 1=1
+    <if test="roleId != null and roleId!=-1 ">
+     and  tur.role_id =#{roleId,jdbcType=INTEGER}
+    </if>
+    group by tp.permission_id
+  </select>
 </mapper>

@@ -13,3 +13,5 @@ spring:
           uri: https://github.com/liulisheng/config-repo.git   #github仓库地址
           #username: 1037079532@qq.com      # 用户名
           #password:       # 密码
+#          default-label: master
+          search-paths: config-repo/dev/**

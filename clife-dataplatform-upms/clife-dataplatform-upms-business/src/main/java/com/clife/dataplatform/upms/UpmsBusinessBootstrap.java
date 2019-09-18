@@ -7,9 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.clife.dataplatform.upms.dao")
-public class BusinessBootstrap {
+public class UpmsBusinessBootstrap {
     public static void main(String[] args) {
-       SpringApplication.run(BusinessBootstrap.class, args);
+       SpringApplication.run(UpmsBusinessBootstrap.class, args);
 //        new SpringApplicationBuilder(BusinessBootstrap.class)
 //                .web(WebApplicationType.NONE)
 //                .run(args);

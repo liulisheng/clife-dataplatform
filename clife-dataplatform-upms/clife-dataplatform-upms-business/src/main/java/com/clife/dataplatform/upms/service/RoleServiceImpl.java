@@ -15,4 +15,9 @@ public class RoleServiceImpl implements RoleService{
     public List<Role> selectAllByUserId(Integer userId){
         return roleDao.selectAllByUserId(userId);
     }
+
+    @Override
+    public List<Role> selectByAll(Role role) {
+        return roleDao.selectByAll(role);
+    }
 }

@@ -5,7 +5,7 @@ import com.clife.dataplatform.upms.dao.UserDao;
 import com.clife.dataplatform.upms.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
-@Service(version = "${hello.service.version}")
+@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;

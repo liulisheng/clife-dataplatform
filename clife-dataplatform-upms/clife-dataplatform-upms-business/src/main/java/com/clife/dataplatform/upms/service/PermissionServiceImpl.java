@@ -61,5 +61,10 @@ public class PermissionServiceImpl implements PermissionService {
         return permissionDao.updateByPrimaryKeySelective(record);
     }
 
+    @Override
+    public List<Permission> getPermissionByRoleId(Integer roleId) {
+        return permissionDao.getPermissionByRoleId(roleId);
+    }
+
 
 }

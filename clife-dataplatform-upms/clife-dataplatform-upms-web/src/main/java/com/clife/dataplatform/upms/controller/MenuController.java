@@ -4,6 +4,7 @@ import com.alibaba.dubbo.config.annotation.Reference;
 import com.clife.dataplatform.commons.ResponseResult;
 import com.clife.dataplatform.controller.BaseController;
 import com.clife.dataplatform.upms.model.Permission;
+import com.clife.dataplatform.upms.model.Role;
 import com.clife.dataplatform.upms.model.User;
 import com.clife.dataplatform.upms.service.PermissionService;
 import com.clife.dataplatform.upms.vo.Menuvo;
@@ -13,6 +14,7 @@ import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -169,5 +171,19 @@ public class MenuController extends BaseController {
     }
 
 
+    /**
+     * 根据角色获取菜单
+     * @return
+     */
+    @RequestMapping("/getPermissionsByRoleId")
+    @ResponseBody
+    public Object getPermissionByRoleId(){
+        Role role=this.getJSONParam(Role.class);
+        List<Permission> permissions=permissionService.getPermissionByRoleId(role.getRoleId());
+        Map<String,Object> map=new HashMap<>();
+        List<PermissionVo> list=recursionPermission(permissions,0);
+        map.put("list",list);
+        return ResponseResult.success(map,"操作成功");
+    }
 
 }

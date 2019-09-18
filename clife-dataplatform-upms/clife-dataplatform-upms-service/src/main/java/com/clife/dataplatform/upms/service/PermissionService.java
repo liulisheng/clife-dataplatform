@@ -21,4 +21,5 @@ public interface PermissionService {
 
     int updateByPrimaryKeySelective(Permission record);
 
+    List<Permission> getPermissionByRoleId(Integer roleId);
 }

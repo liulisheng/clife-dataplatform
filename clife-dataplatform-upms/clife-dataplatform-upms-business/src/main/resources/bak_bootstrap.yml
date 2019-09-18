@@ -1,0 +1,13 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: dataplatform-upms-business
+  cloud:
+    config:
+      #profile: dev
+      uri: http://127.0.0.1:8081/
+  profiles:
+    active: dev
+
+    #include: dataplatform-commons
