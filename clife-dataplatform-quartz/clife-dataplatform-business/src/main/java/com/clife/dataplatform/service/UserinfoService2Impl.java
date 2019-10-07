@@ -1,6 +1,7 @@
 package com.clife.dataplatform.service;
 
-import com.alibaba.dubbo.config.annotation.Service;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserinfoService2Impl implements UserinfoService2 {

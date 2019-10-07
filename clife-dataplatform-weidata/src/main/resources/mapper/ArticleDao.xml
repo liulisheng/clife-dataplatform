@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clife.dataplatform.dao.ArticleDao">
+  <resultMap id="BaseResultMap" type="com.clife.dataplatform.model.Article">
+    <!--@mbg.generated-->
+    <id column="article_id" jdbcType="INTEGER" property="articleId" />
+    <result column="article_title" jdbcType="VARCHAR" property="articleTitle" />
+    <result column="article_type_id" jdbcType="INTEGER" property="articleTypeId" />
+    <result column="article_description" jdbcType="VARCHAR" property="articleDescription" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="article_status" jdbcType="CHAR" property="articleStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    article_id, article_title, article_type_id, article_description, create_time, update_time, 
+    user_id, user_name, article_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_article
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from tb_article
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="article_id" keyProperty="articleId" parameterType="com.clife.dataplatform.model.Article" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_article (article_title, article_type_id, article_description, 
+      create_time, update_time, user_id, 
+      user_name, article_status)
+    values (#{articleTitle,jdbcType=VARCHAR}, #{articleTypeId,jdbcType=INTEGER}, #{articleDescription,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=VARCHAR}, #{articleStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="article_id" keyProperty="articleId" parameterType="com.clife.dataplatform.model.Article" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_article
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleTitle != null">
+        article_title,
+      </if>
+      <if test="articleTypeId != null">
+        article_type_id,
+      </if>
+      <if test="articleDescription != null">
+        article_description,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="articleStatus != null">
+        article_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleTitle != null">
+        #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTypeId != null">
+        #{articleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="articleDescription != null">
+        #{articleDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="articleStatus != null">
+        #{articleStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.clife.dataplatform.model.Article">
+    <!--@mbg.generated-->
+    update tb_article
+    <set>
+      <if test="articleTitle != null">
+        article_title = #{articleTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="articleTypeId != null">
+        article_type_id = #{articleTypeId,jdbcType=INTEGER},
+      </if>
+      <if test="articleDescription != null">
+        article_description = #{articleDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="articleStatus != null">
+        article_status = #{articleStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.clife.dataplatform.model.Article">
+    <!--@mbg.generated-->
+    update tb_article
+    set article_title = #{articleTitle,jdbcType=VARCHAR},
+      article_type_id = #{articleTypeId,jdbcType=INTEGER},
+      article_description = #{articleDescription,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      article_status = #{articleStatus,jdbcType=CHAR}
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-09-29-->
+  <select id="findByAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from tb_article
+    where 1=1
+    <if test="articleId != null">
+      and article_id=#{articleId,jdbcType=INTEGER}
+    </if>
+    <if test="articleTitle != null">
+      and article_title=#{articleTitle,jdbcType=VARCHAR}
+    </if>
+    <if test="articleTypeId != null">
+      and article_type_id=#{articleTypeId,jdbcType=INTEGER}
+    </if>
+    <if test="articleDescription != null">
+      and article_description=#{articleDescription,jdbcType=VARCHAR}
+    </if>
+    <if test="createTime != null">
+      and create_time=#{createTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="updateTime != null">
+      and update_time=#{updateTime,jdbcType=TIMESTAMP}
+    </if>
+    <if test="userId != null">
+      and user_id=#{userId,jdbcType=INTEGER}
+    </if>
+    <if test="userName != null">
+      and user_name=#{userName,jdbcType=VARCHAR}
+    </if>
+    <if test="articleStatus != null">
+      and article_status=#{articleStatus,jdbcType=CHAR}
+    </if>
+  </select>
+</mapper>

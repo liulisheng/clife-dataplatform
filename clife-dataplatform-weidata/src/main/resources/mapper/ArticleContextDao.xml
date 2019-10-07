@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clife.dataplatform.dao.ArticleContextDao">
+  <resultMap id="BaseResultMap" type="com.clife.dataplatform.model.ArticleContext">
+    <!--@mbg.generated-->
+    <id column="article_id" jdbcType="INTEGER" property="articleId" />
+    <result column="article_context" jdbcType="LONGVARCHAR" property="articleContext" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    article_id, article_context
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_article_context
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from tb_article_context
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.clife.dataplatform.model.ArticleContext">
+    <!--@mbg.generated-->
+    insert into tb_article_context (article_id, article_context)
+    values (#{articleId,jdbcType=INTEGER}, #{articleContext,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.clife.dataplatform.model.ArticleContext">
+    <!--@mbg.generated-->
+    insert into tb_article_context
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="articleContext != null">
+        article_context,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="articleId != null">
+        #{articleId,jdbcType=INTEGER},
+      </if>
+      <if test="articleContext != null">
+        #{articleContext,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.clife.dataplatform.model.ArticleContext">
+    <!--@mbg.generated-->
+    update tb_article_context
+    <set>
+      <if test="articleContext != null">
+        article_context = #{articleContext,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.clife.dataplatform.model.ArticleContext">
+    <!--@mbg.generated-->
+    update tb_article_context
+    set article_context = #{articleContext,jdbcType=LONGVARCHAR}
+    where article_id = #{articleId,jdbcType=INTEGER}
+  </update>
+</mapper>

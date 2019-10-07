@@ -8,6 +8,7 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.7.RELEASE</version>
+        <relativePath/>
     </parent>
 
 
@@ -21,6 +22,8 @@
         <module>clife-dataplatform-quartz</module>
         <module>clife-dataplatform-upms</module>
         <module>clife-dataplatform-config-server</module>
+        <module>clife-dataplatform-eureka-server</module>
+        <module>clife-dataplatform-weidata</module>
     </modules>
 
     <properties>
@@ -28,6 +31,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <dubbo-springboot.version>0.2.0</dubbo-springboot.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
     </properties>
 
     <dependencies>
@@ -69,10 +73,11 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.RELEASE</version>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
         </dependencies>
 
     </dependencyManagement>

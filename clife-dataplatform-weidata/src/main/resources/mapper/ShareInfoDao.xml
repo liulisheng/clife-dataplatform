@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clife.dataplatform.dao.ShareInfoDao">
+  <resultMap id="BaseResultMap" type="com.clife.dataplatform.model.ShareInfo">
+    <!--@mbg.generated-->
+    <id column="si_id" jdbcType="INTEGER" property="siId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="del_flag" jdbcType="BOOLEAN" property="delFlag" />
+    <result column="si_content" jdbcType="VARCHAR" property="siContent" />
+    <result column="si_status" jdbcType="BOOLEAN" property="siStatus" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    si_id, create_time, update_time, del_flag, si_content, si_status, user_id, user_name
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_share_info
+    where si_id = #{siId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from tb_share_info
+    where si_id = #{siId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="si_id" keyProperty="siId" parameterType="com.clife.dataplatform.model.ShareInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_share_info (create_time, update_time, del_flag, 
+      si_content, si_status, user_id, 
+      user_name)
+    values (#{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=BOOLEAN}, 
+      #{siContent,jdbcType=VARCHAR}, #{siStatus,jdbcType=BOOLEAN}, #{userId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="si_id" keyProperty="siId" parameterType="com.clife.dataplatform.model.ShareInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_share_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
+      </if>
+      <if test="siContent != null">
+        si_content,
+      </if>
+      <if test="siStatus != null">
+        si_status,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=BOOLEAN},
+      </if>
+      <if test="siContent != null">
+        #{siContent,jdbcType=VARCHAR},
+      </if>
+      <if test="siStatus != null">
+        #{siStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.clife.dataplatform.model.ShareInfo">
+    <!--@mbg.generated-->
+    update tb_share_info
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=BOOLEAN},
+      </if>
+      <if test="siContent != null">
+        si_content = #{siContent,jdbcType=VARCHAR},
+      </if>
+      <if test="siStatus != null">
+        si_status = #{siStatus,jdbcType=BOOLEAN},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where si_id = #{siId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.clife.dataplatform.model.ShareInfo">
+    <!--@mbg.generated-->
+    update tb_share_info
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=BOOLEAN},
+      si_content = #{siContent,jdbcType=VARCHAR},
+      si_status = #{siStatus,jdbcType=BOOLEAN},
+      user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR}
+    where si_id = #{siId,jdbcType=INTEGER}
+  </update>
+</mapper>

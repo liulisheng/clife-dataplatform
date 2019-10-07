@@ -3,29 +3,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>clife-dataplatform-quartz</artifactId>
+        <artifactId>clife-dataplatform</artifactId>
         <groupId>com.clife.dataplatform</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>clife-dataplatform-business</artifactId>
-
+    <artifactId>clife-dataplatform-weidata</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.clife.dataplatform</groupId>
-            <artifactId>clife-dataplatform-service</artifactId>
+            <artifactId>clife-dataplatform-common</artifactId>
             <version>${project.version}</version>
+            <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>dubbo-spring-boot-actuator</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
@@ -65,11 +59,17 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
             <version>2.1.7.RELEASE</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
     </dependencies>
+
 
     <!-- Package as an executable jar -->
     <build>
-        <finalName>clife-dataplatform-business</finalName>
+        <finalName>clife-dataplatform-weidata</finalName>
         <plugins>
             <plugin>
 
@@ -79,16 +79,29 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
+
             <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.3.2</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <verbose>true</verbose>
-                    <overwrite>true</overwrite>
+                    <fork>true</fork>
+                    <mainClass>com.clife.dataplatform.WeiDataBootstrap</mainClass>
+                    <layout>ZIP</layout>
+
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <!-- 分离出代码包
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
+                         -->
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>
