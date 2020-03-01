@@ -21,5 +21,7 @@ public interface ArticleDao {
     List<Article> findByAll(Article article);
 
 
+    List<Article> getList(Article article);
+
 
 }

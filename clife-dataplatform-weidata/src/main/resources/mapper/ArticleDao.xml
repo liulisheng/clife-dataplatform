@@ -174,4 +174,38 @@
       and article_status=#{articleStatus,jdbcType=CHAR}
     </if>
   </select>
+    <select id="getList" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List"/>
+      from tb_article
+      where 1=1
+      <if test="articleId != null">
+        and article_id=#{articleId,jdbcType=INTEGER}
+      </if>
+      <if test="articleTitle != null">
+        and article_title=#{articleTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="articleTypeId != null">
+        and article_type_id=#{articleTypeId,jdbcType=INTEGER}
+      </if>
+      <if test="articleDescription != null">
+        and article_description=#{articleDescription,jdbcType=VARCHAR}
+      </if>
+      <if test="createTime != null">
+        and create_time=#{createTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="updateTime != null">
+        and update_time=#{updateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="userId != null">
+        and user_id=#{userId,jdbcType=INTEGER}
+      </if>
+      <if test="userName != null">
+        and user_name=#{userName,jdbcType=VARCHAR}
+      </if>
+      <if test="articleStatus != null">
+        and article_status=#{articleStatus,jdbcType=CHAR}
+      </if>
+      order by create_time desc
+    </select>
 </mapper>

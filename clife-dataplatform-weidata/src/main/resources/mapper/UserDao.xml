@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.clife.dataplatform.dao.UserDao">
+  <resultMap id="BaseResultMap" type="com.clife.dataplatform.model.User">
+    <!--@mbg.generated-->
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_sex" jdbcType="BOOLEAN" property="userSex" />
+    <result column="user_city" jdbcType="VARCHAR" property="userCity" />
+    <result column="user_province" jdbcType="VARCHAR" property="userProvince" />
+    <result column="user_country" jdbcType="VARCHAR" property="userCountry" />
+    <result column="user_avatarUrl" jdbcType="VARCHAR" property="userAvatarurl" />
+    <result column="user_wx_openid" jdbcType="VARCHAR" property="userWxOpenid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    user_id, user_name, user_sex, user_city, user_province, user_country, user_avatarUrl, 
+    user_wx_openid
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from tb_user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="com.clife.dataplatform.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_user (user_name, user_sex, user_city, 
+      user_province, user_country, user_avatarUrl, 
+      user_wx_openid)
+    values (#{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=BOOLEAN}, #{userCity,jdbcType=VARCHAR}, 
+      #{userProvince,jdbcType=VARCHAR}, #{userCountry,jdbcType=VARCHAR}, #{userAvatarurl,jdbcType=VARCHAR}, 
+      #{userWxOpenid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="com.clife.dataplatform.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="userCity != null">
+        user_city,
+      </if>
+      <if test="userProvince != null">
+        user_province,
+      </if>
+      <if test="userCountry != null">
+        user_country,
+      </if>
+      <if test="userAvatarurl != null">
+        user_avatarUrl,
+      </if>
+      <if test="userWxOpenid != null">
+        user_wx_openid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=BOOLEAN},
+      </if>
+      <if test="userCity != null">
+        #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userProvince != null">
+        #{userProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="userCountry != null">
+        #{userCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="userAvatarurl != null">
+        #{userAvatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="userWxOpenid != null">
+        #{userWxOpenid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.clife.dataplatform.model.User">
+    <!--@mbg.generated-->
+    update tb_user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=BOOLEAN},
+      </if>
+      <if test="userCity != null">
+        user_city = #{userCity,jdbcType=VARCHAR},
+      </if>
+      <if test="userProvince != null">
+        user_province = #{userProvince,jdbcType=VARCHAR},
+      </if>
+      <if test="userCountry != null">
+        user_country = #{userCountry,jdbcType=VARCHAR},
+      </if>
+      <if test="userAvatarurl != null">
+        user_avatarUrl = #{userAvatarurl,jdbcType=VARCHAR},
+      </if>
+      <if test="userWxOpenid != null">
+        user_wx_openid = #{userWxOpenid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.clife.dataplatform.model.User">
+    <!--@mbg.generated-->
+    update tb_user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=BOOLEAN},
+      user_city = #{userCity,jdbcType=VARCHAR},
+      user_province = #{userProvince,jdbcType=VARCHAR},
+      user_country = #{userCountry,jdbcType=VARCHAR},
+      user_avatarUrl = #{userAvatarurl,jdbcType=VARCHAR},
+      user_wx_openid = #{userWxOpenid,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+
+
+  <select id="getUserByOpenid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_user
+    where user_wx_openid = #{userWxOpenid}
+
+  </select>
+</mapper>

@@ -12,7 +12,8 @@ spring:
       #基本属性
       url: jdbc:mysql://127.0.0.1:3306/dataplatform-weidata?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
       username: root
-      password: rrgl>w<7*Vcs
+      #password: rrgl>w<7*Vcs
+      password: root
       #配置初始化大小/最小/最大
       initial-size: 1
       min-idle: 1

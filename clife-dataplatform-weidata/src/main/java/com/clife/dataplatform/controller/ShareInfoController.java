@@ -22,4 +22,8 @@ public class ShareInfoController extends BaseController{
         }
         return shareInfoService.insert(shareInfo);
     }
+
+
+
+
 }

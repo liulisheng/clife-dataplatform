@@ -1,0 +1,19 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: dataplaform
+  cloud:
+    config:
+      profile: dev
+      uri: http://127.0.0.1:8081/
+  data:
+    elasticsearch:
+      cluster-name: my-application
+      cluster-nodes: 127.0.0.1 # 程序连接es的端口号是9300
+      port: 9300
+
+elasticsearch:
+  host: 127.0.0.1
+  port: 9300
+  clusterName:  my-application

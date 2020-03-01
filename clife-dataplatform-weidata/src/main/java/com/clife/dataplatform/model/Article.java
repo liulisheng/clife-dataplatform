@@ -1,8 +1,4 @@
 package com.clife.dataplatform.model;
-import com.clife.dataplatform.model.Article;
-import com.clife.dataplatform.model.ArticleType;
-import java.util.List;
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -14,24 +10,6 @@ import java.util.Date;
 @Setter
 @ToString
 public class Article implements Serializable {
-
-    @org.springframework.beans.factory.annotation.Autowired
-    private com.clife.dataplatform.dao.ArticleDao articleDao;
-
-    @Override
-	public List<ArticleType> findByAll(ArticleType articleType){
-		 return articleTypeDao.findByAll(articleType);
-	}
-
-	@Override
-	public List<Article> findByAll(Article article){
-		 return articleDao.findByAll(article);
-	}
-
-
-
-
-
 
     /**
     * 主键
